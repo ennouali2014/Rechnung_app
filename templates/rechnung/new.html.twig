@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Rechnung{% endblock %}
+
+{% block body %}
+    <h1>Create new Rechnung</h1>
+
+    {{ include('rechnung/_form.html.twig') }}
+
+    <a href="{{ path('app_rechnung_index') }}">back to list</a>
+{% endblock %}

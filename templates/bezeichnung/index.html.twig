@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bezeichnung index{% endblock %}
+
+{% block body %}
+    <h1>Bezeichnung index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Menge</th>
+                <th>Description</th>
+                <th>Einzelpreis</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for bezeichnung in bezeichnungs %}
+            <tr>
+                <td>{{ bezeichnung.id }}</td>
+                <td>{{ bezeichnung.menge }}</td>
+                <td>{{ bezeichnung.description }}</td>
+                <td>{{ bezeichnung.einzelpreis }}</td>
+                <td>
+                    <a href="{{ path('app_bezeichnung_show', {'id': bezeichnung.id}) }}">show</a>
+                    <a href="{{ path('app_bezeichnung_edit', {'id': bezeichnung.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_bezeichnung_new') }}">Create new</a>
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Rechnung index{% endblock %}
+
+{% block body %}
+    <h1>Rechnung index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titel</th>
+                <th>Erstellungdate</th>
+                <th>Bestellung</th>
+                <th>Leistung</th>
+                <th>Zahlungart</th>
+                <th>Gesamtnetto</th>
+                <th>Mwst</th>
+                <th>Gesamtbrutto</th>
+                <th>KundenName</th>
+                <th>KundenStrasse</th>
+                <th>KundenPlz</th>
+                <th>KundenOrt</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for rechnung in rechnungs %}
+            <tr>
+                <td>{{ rechnung.id }}</td>
+                <td>{{ rechnung.titel }}</td>
+                <td>{{ rechnung.erstellungdate ? rechnung.erstellungdate|date('Y-m-d') : '' }}</td>
+                <td>{{ rechnung.bestellung }}</td>
+                <td>{{ rechnung.leistung }}</td>
+                <td>{{ rechnung.zahlungart }}</td>
+                <td>{{ rechnung.gesamtnetto }}</td>
+                <td>{{ rechnung.mwst }}</td>
+                <td>{{ rechnung.gesamtbrutto }}</td>
+                <td>{{ rechnung.kundenName }}</td>
+                <td>{{ rechnung.kundenStrasse }}</td>
+                <td>{{ rechnung.kundenPlz }}</td>
+                <td>{{ rechnung.kundenOrt }}</td>
+                <td>
+                    <a href="{{ path('app_rechnung_show', {'id': rechnung.id}) }}">show</a>
+                    <a href="{{ path('app_rechnung_edit', {'id': rechnung.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="14">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_rechnung_new') }}">Create new</a>
+{% endblock %}

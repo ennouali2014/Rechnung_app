@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ansteller{% endblock %}
+
+{% block body %}
+    <h1>Ansteller</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ ansteller.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ ansteller.name }}</td>
+            </tr>
+            <tr>
+                <th>Strasse</th>
+                <td>{{ ansteller.strasse }}</td>
+            </tr>
+            <tr>
+                <th>Plz</th>
+                <td>{{ ansteller.plz }}</td>
+            </tr>
+            <tr>
+                <th>Ort</th>
+                <td>{{ ansteller.ort }}</td>
+            </tr>
+            <tr>
+                <th>SteuerNr</th>
+                <td>{{ ansteller.steuerNr }}</td>
+            </tr>
+            <tr>
+                <th>Bank</th>
+                <td>{{ ansteller.bank }}</td>
+            </tr>
+            <tr>
+                <th>Kontonummer</th>
+                <td>{{ ansteller.kontonummer }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_ansteller_index') }}">back to list</a>
+
+    <a href="{{ path('app_ansteller_edit', {'id': ansteller.id}) }}">edit</a>
+
+    {{ include('ansteller/_delete_form.html.twig') }}
+{% endblock %}

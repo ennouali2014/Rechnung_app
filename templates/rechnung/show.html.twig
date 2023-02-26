@@ -1,0 +1,70 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Rechnung{% endblock %}
+
+{% block body %}
+    <h1>Rechnung</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ rechnung.id }}</td>
+            </tr>
+            <tr>
+                <th>Titel</th>
+                <td>{{ rechnung.titel }}</td>
+            </tr>
+            <tr>
+                <th>Erstellungdate</th>
+                <td>{{ rechnung.erstellungdate ? rechnung.erstellungdate|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Bestellung</th>
+                <td>{{ rechnung.bestellung }}</td>
+            </tr>
+            <tr>
+                <th>Leistung</th>
+                <td>{{ rechnung.leistung }}</td>
+            </tr>
+            <tr>
+                <th>Zahlungart</th>
+                <td>{{ rechnung.zahlungart }}</td>
+            </tr>
+            <tr>
+                <th>Gesamtnetto</th>
+                <td>{{ rechnung.gesamtnetto }}</td>
+            </tr>
+            <tr>
+                <th>Mwst</th>
+                <td>{{ rechnung.mwst }}</td>
+            </tr>
+            <tr>
+                <th>Gesamtbrutto</th>
+                <td>{{ rechnung.gesamtbrutto }}</td>
+            </tr>
+            <tr>
+                <th>KundenName</th>
+                <td>{{ rechnung.kundenName }}</td>
+            </tr>
+            <tr>
+                <th>KundenStrasse</th>
+                <td>{{ rechnung.kundenStrasse }}</td>
+            </tr>
+            <tr>
+                <th>KundenPlz</th>
+                <td>{{ rechnung.kundenPlz }}</td>
+            </tr>
+            <tr>
+                <th>KundenOrt</th>
+                <td>{{ rechnung.kundenOrt }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_rechnung_index') }}">back to list</a>
+
+    <a href="{{ path('app_rechnung_edit', {'id': rechnung.id}) }}">edit</a>
+
+    {{ include('rechnung/_delete_form.html.twig') }}
+{% endblock %}

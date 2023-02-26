@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ansteller index{% endblock %}
+
+{% block body %}
+    <h1>Ansteller index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Strasse</th>
+                <th>Plz</th>
+                <th>Ort</th>
+                <th>SteuerNr</th>
+                <th>Bank</th>
+                <th>Kontonummer</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for ansteller in anstellers %}
+            <tr>
+                <td>{{ ansteller.id }}</td>
+                <td>{{ ansteller.name }}</td>
+                <td>{{ ansteller.strasse }}</td>
+                <td>{{ ansteller.plz }}</td>
+                <td>{{ ansteller.ort }}</td>
+                <td>{{ ansteller.steuerNr }}</td>
+                <td>{{ ansteller.bank }}</td>
+                <td>{{ ansteller.kontonummer }}</td>
+                <td>
+                    <a href="{{ path('app_ansteller_show', {'id': ansteller.id}) }}">show</a>
+                    <a href="{{ path('app_ansteller_edit', {'id': ansteller.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_ansteller_new') }}">Create new</a>
+{% endblock %}

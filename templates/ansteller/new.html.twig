@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Ansteller{% endblock %}
+
+{% block body %}
+    <h1>Create new Ansteller</h1>
+
+    {{ include('ansteller/_form.html.twig') }}
+
+    <a href="{{ path('app_ansteller_index') }}">back to list</a>
+{% endblock %}
